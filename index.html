@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="slide1">
+        <div class="box_iron">
+            <img src="./src/iron.png" alt="">
+            <img src="./src/iron_2.png" class="iron_2" alt="">
+            <img src="./src/iron_3.png" class="iron_2 iron_3" alt="">
+        </div>
+        <input type="checkbox" name="" id="button" hidden>
+        <label for="button" class="box_wrapped">
+            <img src="./src/box.png" class="box" alt="">
+            <h3>1,2,3 Nhìn sang trái</h3>
+        </label>
+    </div>
+</body>
+<script>
+    var box = document.getElementsByClassName("box_wrapped");
+    var audio= new Audio("./src/audio.mp3");
+    console.log(audio)
+    box[0].onclick = function() {
+        audio.play();
+    }
+</script>
+</html>
