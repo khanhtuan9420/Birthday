@@ -12,8 +12,9 @@
     box-sizing: border-box;
 }
 
-content {
+.content {
     position: relative;
+    height: 100vh;
     overflow-y: hidden;
 }
 
