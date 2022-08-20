@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="slide1">
         <div class="box_iron">
@@ -20,13 +22,89 @@
             <h3>1,2,3 Nhìn sang trái</h3>
         </label>
     </div>
+    <div class="slide2">
+        <div class="words_wrapped">
+            <h2 class="words">Today, you're the</h2>
+            <h2 class="words">most beautiful and </h2>
+            <h2 class="words fill">_____ girl in the </h2>
+            <h2 class="words">world</h3>
+            <span>Try to choose "Ugly"</span>
+        </div>
+        <img src="./src/Ugly.png" class="Ugly choice" alt="">
+        <img src="./src/talent.png" class="talent choice" alt="">
+        <img src="./src/frame.png" class="frame" alt="">
+        <img src="./src/arrow.png" class="arrow" alt="">
+        <h2 class="end">I need your photo :vvv</h2>
+    </div>
 </body>
 <script>
     var box = document.getElementsByClassName("box_wrapped");
-    var audio= new Audio("./src/audio.mp3");
+    var audio = new Audio("./src/audio.mp3");
+    var choice = document.querySelectorAll('.choice');
+    var span = document.querySelector('span');
+    const slide1 = document.querySelector('.slide1');
+    var r = document.querySelector(':root');
     console.log(audio)
-    box[0].onclick = function() {
+    box[0].onclick = function () {
         audio.play();
+        const myTimeOut = setTimeout(Switch, 5000);
+        const myTimeOut2 = setTimeout(changeColor, 8000)
+        const myTimeOut3 = setTimeout(appearText,13500)
+    }
+    function Switch() {
+        slide1.classList.add("switch")
+    }
+    
+    function appearText() {
+        
+        choice[0].classList.add("appear2");
+        choice[1].classList.add("appear2");
+        span.classList.add('appear2')
+    }
+
+    const sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+
+    const changeColor = async () => {
+        for(var i=1;i<=100;i++) {
+            await sleep(70);
+            timeChange(i)
+        }
+    }
+
+    function timeChange(i) {
+        var k = 100 - i;
+        r.style.setProperty('--percent', `${k}%`);
+    }
+
+    var ugly = document.querySelector('.Ugly');
+    ugly.onclick = function() {
+        var bottom = Math.random()*100;
+        if(bottom>60) bottom-=20;
+        if(bottom>17 && bottom<33 && left>25) bottom+=30;
+        var left = Math.random()*100-10;
+        if(left>60) left-=20;
+        r.style.setProperty('--bottom',`${bottom}%`);
+        r.style.setProperty('--left',`${left}%`);
+    }
+
+    var talent = document.querySelector('.talent');
+    talent.onclick = function() {
+        console.log(1)
+        choice[0].classList.remove("appear2");
+        choice[1].classList.remove("appear2");
+        choice[0].classList.add('disappear_2');
+        choice[1].classList.add('disappear_2');
+        span.classList.remove('appear2');
+        span.classList.add('disapear2');
+        setTimeout(function() {
+            document.querySelector('.fill').textContent="talent girl in the ";
+            document.querySelector('.frame').classList.add('appear2');
+            document.querySelector('.arrow').style.opacity=1;
+            document.querySelector('.end').classList.add('appear2');
+        },2000)
     }
 </script>
+
 </html>
