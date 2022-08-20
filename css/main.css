@@ -12,8 +12,9 @@
     box-sizing: border-box;
 }
 
-body {
+content {
     position: relative;
+    overflow-y: hidden;
 }
 
 .slide1 {
@@ -79,10 +80,24 @@ body {
     display: flex;
     margin: auto;
     animation: appear 10s linear;
+    position: relative;
+    z-index: 1;
 }
 
 .iron_3 {
-    animation: appear 10s linear;
+    animation: appear3 12s linear;
+}
+
+@keyframes appear3 {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes appear {
@@ -90,7 +105,7 @@ body {
         opacity: 0;
     }
 
-    80% {
+    65% {
         opacity: 0;
     }
 
@@ -151,7 +166,7 @@ body {
     }
 }
 
-#button:checked ~ .box_wrapped .box {
+.box_effect {
     animation: zoomin 2s linear forwards;            
 }
 
@@ -170,7 +185,7 @@ h3 {
     transform: translate(-50%,-50%);
 }
 
-#button:checked ~ .box_wrapped h3 {
+.h3_effect {
     animation: appear 4.5s forwards;
     text-align: center;         
 }
@@ -231,11 +246,16 @@ h3 {
 
 @keyframes disappear2 {
     0% {
+        /* display: block; */
         opacity: 1;
     }
 
-    100% {
+    99% {
         opacity: 0;
+    }
+
+    100% {
+        z-index: -4;
     }
 }
 
@@ -267,7 +287,7 @@ span, .end {
 
 .frame {
     position: absolute;
-    bottom: 80px;
+    bottom: 65px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -276,7 +296,7 @@ span, .end {
 
 .arrow {
     position: absolute;
-    bottom: 315px;
+    bottom: 325px;
     left: 50%;
     transform: translateX(-50%);
     animation: arrowE 1s ease-in-out infinite;
@@ -286,22 +306,23 @@ span, .end {
 
 @keyframes arrowE {
     0% {
-        bottom: 345px;
+        bottom: 325px;
     }
     50% {
-        bottom: 315px;
+        bottom: 295px;
     }
 
     100% {
-        bottom: 345px;
+        bottom: 325px;
     }
 }
 
 .end {
     font-size: 30px;
     position: absolute;
-    bottom: 264px;
+    bottom: 245px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
+    z-index: -2;
 }

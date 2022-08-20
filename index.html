@@ -10,47 +10,56 @@
 </head>
 
 <body>
-    <div class="slide1">
-        <div class="box_iron">
-            <img src="./src/iron.png" alt="">
-            <img src="./src/iron_2.png" class="iron_2" alt="">
-            <img src="./src/iron_3.png" class="iron_2 iron_3" alt="">
+    <div class="content">
+        <div class="slide1">
+            <div class="box_iron">
+                <img src="./src/iron.png" alt="">
+                <img src="./src/iron_2.png" class="iron_2" alt="">
+                <img src="./src/iron_3.png" class="iron_2 iron_3" alt="">
+            </div>
+            <label for="" class="box_wrapped">
+                <img src="./src/box.png" class="box" alt="">
+                <h3>1,2,3 Nhìn sang trái</h3>
+            </label>
         </div>
-        <input type="checkbox" name="" id="button" hidden>
-        <label for="button" class="box_wrapped">
-            <img src="./src/box.png" class="box" alt="">
-            <h3>1,2,3 Nhìn sang trái</h3>
-        </label>
-    </div>
-    <div class="slide2">
-        <div class="words_wrapped">
-            <h2 class="words">Today, you're the</h2>
-            <h2 class="words">most beautiful and </h2>
-            <h2 class="words fill">_____ girl in the </h2>
-            <h2 class="words">world</h3>
-            <span>Try to choose "Ugly"</span>
+        <div class="slide2">
+            <div class="words_wrapped">
+                <h2 class="words">Today, you're the</h2>
+                <h2 class="words">most beautiful</h2>
+                <h2 class="words fill">and _______ girl</h2>
+                <h2 class="words">in the world</h3>
+                <span>Try to choose "Ugly"</span>
+            </div>
+            <img src="./src/Ugly.png" class="Ugly choice" alt="">
+            <img src="./src/talent.png" class="talent choice" alt="">
+            <img src="./src/frame.png" class="frame" alt="">
+            <img src="./src/arrow.png" class="arrow" alt="">
+            <h2 class="end">I need your photo :vvv</h2>
         </div>
-        <img src="./src/Ugly.png" class="Ugly choice" alt="">
-        <img src="./src/talent.png" class="talent choice" alt="">
-        <img src="./src/frame.png" class="frame" alt="">
-        <img src="./src/arrow.png" class="arrow" alt="">
-        <h2 class="end">I need your photo :vvv</h2>
     </div>
 </body>
 <script>
-    var box = document.getElementsByClassName("box_wrapped");
+    var box = document.querySelector(".box");
+    var box_wrap = document.querySelector('.box_wrapped');
     var audio = new Audio("./src/audio.mp3");
     var choice = document.querySelectorAll('.choice');
     var span = document.querySelector('span');
     const slide1 = document.querySelector('.slide1');
     var r = document.querySelector(':root');
     console.log(audio)
-    box[0].onclick = function () {
+    box.onclick = function () {
+        box.classList.add('box_effect');
+        document.querySelector('.box_wrapped h3').classList.add('h3_effect');
         audio.play();
         const myTimeOut = setTimeout(Switch, 5000);
         const myTimeOut2 = setTimeout(changeColor, 8000)
         const myTimeOut3 = setTimeout(appearText,13500)
     }
+    box_wrap.addEventListener('click', function (event)
+        {
+            event.preventDefault();
+            event.stopPropagation()
+        })
     function Switch() {
         slide1.classList.add("switch")
     }
@@ -99,7 +108,7 @@
         span.classList.remove('appear2');
         span.classList.add('disapear2');
         setTimeout(function() {
-            document.querySelector('.fill').textContent="talent girl in the ";
+            document.querySelector('.fill').textContent="and talented girl";
             document.querySelector('.frame').classList.add('appear2');
             document.querySelector('.arrow').style.opacity=1;
             document.querySelector('.end').classList.add('appear2');
