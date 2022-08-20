@@ -300,7 +300,7 @@ span, .end {
 .end {
     font-size: 30px;
     position: absolute;
-    bottom: 265px;
+    bottom: 264px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
