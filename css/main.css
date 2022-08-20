@@ -287,7 +287,7 @@ span, .end {
 
 .frame {
     position: absolute;
-    bottom: 65px;
+    bottom: 75px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -296,7 +296,7 @@ span, .end {
 
 .arrow {
     position: absolute;
-    bottom: 345px;
+    bottom: 355px;
     left: 50%;
     transform: translateX(-50%);
     animation: arrowE 1s ease-in-out infinite;
@@ -306,21 +306,21 @@ span, .end {
 
 @keyframes arrowE {
     0% {
-        bottom: 345px;
+        bottom: 355px;
     }
     50% {
-        bottom: 315px;
+        bottom: 325px;
     }
 
     100% {
-        bottom: 345px;
+        bottom: 355px;
     }
 }
 
 .end {
     font-size: 30px;
     position: absolute;
-    bottom: 265px;
+    bottom: 275px;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
